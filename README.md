@@ -7,10 +7,10 @@
 |               | Dedi Surahmin             |
 |               | Dwi Ellya                 |
 |               | Febriansyah Agung Tirta   |
-| NPM           | 21753049                  |
+| NPM           | 21753038                  |
 |               | 21753040                  |
-|               | 21753040                  |
-|               | 21753040                  |
+|               | 21753045                  |
+|               | 21753047                  |
 |               | 21753049                  |
 | Kelas         | Management Informatika 4B |
 | Instansi      | Politeknik Negeri Lampung |
