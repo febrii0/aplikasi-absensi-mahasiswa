@@ -37,7 +37,7 @@
                     <img src="/assets/img/Logo-Polinela-New-300x287.png" width="40" height="40"
                         style="margin-right: 5px;">
                 </div>
-                <div class="sidebar-brand-text mx-3">POLINELA</div>
+                <div class="sidebar-brand-text mx-3" href="/Dashboard">POLINELA</div>
             </a>
 
             <!-- Divider -->
@@ -93,14 +93,14 @@
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
                     aria-controls="collapsePages">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Menus</span>
+                    <span>Menu</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
-                        <a class="collapse-item" href="login.php">Login</a>
-                        <a class="collapse-item" href="register.php">Register</a>
-                        <a class="collapse-item" href="forget_password.php">Forger Password</a>
+                        <a class="collapse-item" href="/Login">Login</a>
+                        <a class="collapse-item" href="/Register">Register</a>
+                        <a class="collapse-item" href="/ForgotPassword">Forgot Password</a>
                     </div>
                 </div>
             </li>
