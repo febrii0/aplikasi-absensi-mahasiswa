@@ -1,3 +1,6 @@
+<?= $this->extend('layout/layout') ?>
+<?= $this->section('content') ?>
+
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -49,3 +52,5 @@
         </div>
     </div>
 </div>
+
+<?= $this->endSection() ?>
