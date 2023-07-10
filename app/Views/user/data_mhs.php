@@ -28,7 +28,7 @@
                         <td> <?= $mahasiswa["npm"] ?></td>
                         <td> <?= $mahasiswa["nama"] ?></td>
                         <td> <?= $mahasiswa["email"] ?></td>
-                        <td> <?= $mahasiswa["id_kelas"] ?></td>
+                        <td> <?= $mahasiswa["nama_kelas"] ?></td>
                     </tr>
                 <?php endforeach; ?>
             </table>
