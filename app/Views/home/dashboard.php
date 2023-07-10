@@ -42,8 +42,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                         </div>
                         <div class="col-auto">
-                            <img src="assets/icons/clipboard-check-fill.svg">
-                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
