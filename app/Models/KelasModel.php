@@ -12,19 +12,21 @@ class KelasModel extends Model
     protected $allowdFields = ['id_kelas', 'nama_kelas'];
     public function getKelas()
     {
-        $data =
-            [
-                [
-                    "nama_kelas" => "A"
-                ],
-                [
-                    "nama_kelas" => "B"
-                ],
-                [
-                    "nama_kelas" => "C"
-                ]
-            ];
-        return $data;
+        $query = $this->db->table('kelas');
+        return $query->get()->getResultArray();
+        // $data =
+        //     [
+        //         [
+        //             "nama_kelas" => "A"
+        //         ],
+        //         [
+        //             "nama_kelas" => "B"
+        //         ],
+        //         [
+        //             "nama_kelas" => "C"
+        //         ]
+        //     ];
+        // return $data;
     }
 
 }

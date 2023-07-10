@@ -21,7 +21,7 @@ class Dosen extends BaseController
     public function index()
     {
         //dd($this -> dosen -> getDosen());
-        $data['data_dosen'] = $this -> dosen -> getDosen();
+        $data['data_dosen'] = $this -> dosen -> totalDosen();
         return view("user/data_dosen", $data);
     }
     public function all()
