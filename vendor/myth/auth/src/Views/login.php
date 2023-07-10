@@ -14,20 +14,20 @@
 					<form action="<?= url_to('login') ?>" method="post">
 						<?= csrf_field() ?>
 
-<?php if ($config->validFields === ['email']): ?>
+<?php if ($config->validFields === ['NPM']): ?>
 						<div class="form-group">
-							<label for="login"><?=lang('Auth.email')?></label>
-							<input type="email" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>"
-								   name="login" placeholder="<?=lang('Auth.email')?>">
+							<label for="login"><?=lang('NPM')?></label>
+							<input type="NPM" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>"
+								   name="login" placeholder="<?=lang('NPM')?>">
 							<div class="invalid-feedback">
 								<?= session('errors.login') ?>
 							</div>
 						</div>
 <?php else: ?>
 						<div class="form-group">
-							<label for="login"><?=lang('Auth.emailOrUsername')?></label>
+							<label for="login"><?=lang('NPM')?></label>
 							<input type="text" class="form-control <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>"
-								   name="login" placeholder="<?=lang('Auth.emailOrUsername')?>">
+								   name="login" placeholder="<?=lang('NPM')?>">
 							<div class="invalid-feedback">
 								<?= session('errors.login') ?>
 							</div>
@@ -58,12 +58,6 @@
 
 					<hr>
 
-<?php if ($config->allowRegistration) : ?>
-					<p><a href="<?= url_to('register') ?>"><?=lang('Auth.needAnAccount')?></a></p>
-<?php endif; ?>
-<?php if ($config->activeResetter): ?>
-					<p><a href="<?= url_to('forgot') ?>"><?=lang('Auth.forgotYourPassword')?></a></p>
-<?php endif; ?>
 				</div>
 			</div>
 
