@@ -9,7 +9,7 @@ class MatkulModel extends Model
     protected $table                = 'mata_kuliah';
     protected $primarykey           = 'id_matkul';
     protected $useAutoIncrement     = true;
-    protected $allowFields          = [];
+    protected $allowdFields          = ['id_matkul', 'nama_matkul','kode_matkul','id_dosen'];
 
    public function getMatkul() {
     $data = [

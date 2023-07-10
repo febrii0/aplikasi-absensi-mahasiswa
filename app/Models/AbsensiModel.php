@@ -9,7 +9,7 @@ class AbsensiModel extends Model
     protected $table                = 'absensi';
     protected $primarykey           = 'id_absen';
     protected $useAutoIncrement     = true;
-    protected $allowFields          = [];
+    protected $allowdFields          = ['id_absen', 'tanggal', 'id_status', 'id_matkul'];
 
    public function getAbsensi() {
     $data = [

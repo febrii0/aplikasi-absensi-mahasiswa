@@ -8,7 +8,7 @@ class MahasiswaModel extends Model
     protected $table = 'mahasiswa';
     protected $primaryKey = 'id_mhs';
     protected $useAutoIncrement = true;
-    protected $allowFields = [];
+    protected $allowdFields = ['id_mhs', 'npm', 'nama', 'email', 'id_kelas'];
 
     public function getMahasiswa(){
         $data= [
@@ -27,6 +27,12 @@ class MahasiswaModel extends Model
         ];
         return $data;
     
+    }
+
+    public function totalMahasiswa()
+    {
+        $query = $this->db->table('mahasiswa');
+        return $query->get()->getResultArray();
     }
 
     //digunakan untuk mengambil semua data dari tabel
