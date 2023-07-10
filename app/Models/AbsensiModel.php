@@ -6,6 +6,11 @@ use CodeIgniter\Model;
 
 class AbsensiModel extends Model
 {
+    protected $table                = 'absensi';
+    protected $primarykey           = 'id_absen';
+    protected $useAutoIncrement     = true;
+    protected $allowFields          = [];
+
    public function getAbsensi() {
     $data = [
         [
@@ -30,5 +35,9 @@ class AbsensiModel extends Model
         ]
     ];
     return $data;
+   }
+   public function getAllData()
+   {
+    return $this->findAll();
    }
 }
