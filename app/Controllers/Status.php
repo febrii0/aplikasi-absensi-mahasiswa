@@ -21,4 +21,9 @@ class Status extends BaseController
         $data['data_status'] = $this -> status -> getStatus();
         return view("absensi/status", $data);
     }
+
+    public function all()
+    {
+        dd($this->status->getAllData());
+    }
 }
