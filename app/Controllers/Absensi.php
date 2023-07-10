@@ -27,5 +27,6 @@ class Absensi extends BaseController
     public function all()
     {
         dd($this->absensi->getAllData());
+        
     }
 }

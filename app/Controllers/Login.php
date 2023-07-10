@@ -11,44 +11,38 @@ class Login extends BaseController
         return view('menu/login');
     }
 
-    // public function authenticate()
-    // {
-    //     // Mengambil data dari form login
-    //     $email = $this->request->getPost('email');
-    //     $password = $this->request->getPost('password');
+    public function authenticate()
+     {
+   
+         $NPM = $this->request->getPost('NPM');
+         $password = $this->request->getPost('password');
+         $validation = $this->validate([
+            'NPM' => 'required|valid_NPM',
+            'password' => 'required|min_length[6]'
+        ]);
 
-    //     // Validasi form login
-    //     $validation = $this->validate([
-    //         'email' => 'required|valid_email',
-    //         'password' => 'required|min_length[6]'
-    //     ]);
+        if (!$validation) {
+            return redirect()->to('/login')->withInput()->with('error', 'NPM dan password harus diisi.');
+        }
 
-    //     if (!$validation) {
-    //         return redirect()->to('/login')->withInput()->with('error', 'Email dan password harus diisi.');
-    //     }
+        $userModel = new ($userModel);
+        $user = $userModel->where('NPM', $NPM)->first();
 
-    //     // Mencocokkan email dan password dengan data yang ada di database
-    //     $userModel = new ($userModel);
-    //     $user = $userModel->where('email', $email)->first();
+        if (!$user || !password_verify($password, $user['password'])) {
+            return redirect()->to('/login')->withInput()->with('error', 'NPM atau password salah.');
+        }
 
-    //     if (!$user || !password_verify($password, $user['password'])) {
-    //         return redirect()->to('/login')->withInput()->with('error', 'Email atau password salah.');
-    //     }
+        $session = session();
+        $session->set('user_id', $user['id']);
 
-    //     // Menyimpan data user ke dalam session
-    //     $session = session();
-    //     $session->set('user_id', $user['id']);
+        return redirect()->to('/dashboard');
+    }
 
-    //     return redirect()->to('/dashboard');
-    // }
-
-    // public function logout()
-    // {
-    //     // Menghapus data user dari session
-    //     $session = session();
-    //     $session->remove('user_id');
-
-    //     return redirect()->to('/login');
-    // }
-
+    public function logout()
+    {
+        $session = session();
+        $session->remove('user_id');
+        return redirect()->to('/login');
+    }
 }
+
