@@ -24,7 +24,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            <i class="fas fa-user-check fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                            <i class="fas fa-user-times fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
