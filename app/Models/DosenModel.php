@@ -6,7 +6,12 @@ use CodeIgniter\Model;
 
 class DosenModel extends Model
 {
-   public function getDosen() {
+    protected $table                = 'dosen';
+    protected $primarykey           = 'id_dosen';
+    protected $useAutoIncrement     = true;
+    protected $allowFields          = [];
+    
+    public function getDosen() {
     $data = [
         [
             "nip"           => "198708142015042002",
@@ -34,5 +39,9 @@ class DosenModel extends Model
         ]
     ];
     return $data;
+    }
+    public function getAllData()
+    {
+        return $this->findAll();
     }
 }

@@ -24,4 +24,8 @@ class Dosen extends BaseController
         $data['data_dosen'] = $this -> dosen -> getDosen();
         return view("user/data_dosen", $data);
     }
+    public function all()
+    {
+        dd($this->dosen->getAllData());
+    }
 }
