@@ -4,20 +4,24 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
+//step 1
 use App\Models\KelasModel;
 
 class Kelas extends BaseController
 {
-     protected $kelas;
+    //step 2
+    protected $kelas;
 
-     public function __construct()
-     {
-         $this->kelas = new KelasModel();
-     }
-     public function index()
-     {
-         //dd($this -> kelas -> getKelas());
-         $data['nama_kelas'] = $this -> kelas -> getKelas();
-         return view("kelas/data_kelas", $data);
-     }
+    //step 3
+    public function __construct()
+    {
+        //step 4
+        $this -> kelas = new KelasModel();
+    }
+    public function index()
+    {
+        //dd($this -> kelas -> getKelas());
+        $data['data_kelas'] = $this -> kelas -> getKelas();
+        return view("kelas/data_kelas", $data);
+    }
 }

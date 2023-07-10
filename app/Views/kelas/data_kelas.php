@@ -7,11 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Kelas Mahasiswa</h1>
+    <h1>Kelas</h1>
     <table border = "1" colspacing = "0" cellpadding = "5">
         <tr>
             <th>No.</th>
-            <th>Nama Kelas</th>
+            <th> Nama Kelas</th>
         </tr>
         <?php $i = 1; ?>
         <?php foreach($data_kelas as $row) :?>
