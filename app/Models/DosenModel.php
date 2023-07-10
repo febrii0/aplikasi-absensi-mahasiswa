@@ -9,7 +9,7 @@ class DosenModel extends Model
     protected $table                = 'dosen';
     protected $primarykey           = 'id_dosen';
     protected $useAutoIncrement     = true;
-    protected $allowFields          = [];
+    protected $allowdFields          = ['id_dosen','nip','nama_dosen','email','id_matkul'];
     
     public function getDosen() {
     $data = [
