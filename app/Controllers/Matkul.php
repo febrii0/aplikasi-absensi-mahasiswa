@@ -8,6 +8,6 @@ class Matkul extends BaseController
 {
     public function index()
     {
-        //
+        return view('user/data_mhs');
     }
 }
