@@ -21,7 +21,7 @@ class Mahasiswa extends BaseController
     public function index()
     {
         //dd($this -> mahasiswa -> getMahasiswa());
-        $data['data_mhs'] = $this -> mahasiswa -> getMahasiswa();
+        $data['data_mhs'] = $this -> mahasiswa -> totalMahasiswa();
         return view("user/data_mhs", $data);
     }
     public function all()
