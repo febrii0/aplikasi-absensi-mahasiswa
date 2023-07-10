@@ -4,24 +4,28 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
+//step 1
 use App\Models\MahasiswaModel;
 
 class Mahasiswa extends BaseController
 {
+    //step 2
     protected $mahasiswa;
-    //buat fungsi construct untuk inisiasi class model
+
+    //step 3
     public function __construct()
     {
+        //step 4
         $this -> mahasiswa = new MahasiswaModel();
     }
     public function index()
     {
-        $data['data_mahasiswa']=($this->mahasiswa->getMahasiswa());
-        return view('user/data_mhs');
-    }
-    public function all(){
-        $data['data_mahasiswa']=($this->mahasiswa->getAllData());
+        //dd($this -> mahasiswa -> getMahasiswa());
+        $data['data_mhs'] = $this -> mahasiswa -> getMahasiswa();
         return view("user/data_mhs", $data);
     }
-
+    public function all()
+    {
+        dd($this->mahasiswa->getAllData());
+    }
 }

@@ -15,14 +15,14 @@ class MahasiswaModel extends Model
         [
             "npm" => "21753047",
             "nama_mhs" => "Dwi Ellya",
+            "email" => "dwie2Gmail.com",
             "id_kelas" => " B ",
-            "email" => "dwie@gmail.com"
         ],
         [
             "npm" => "21753088",
-            "nama_mhs" => "sgasjhgjh",
+            "nama_mhs" => "Alifia Rahmanita",
+            "email" => "aliff@gmail.com",
             "id_kelas" => " B ",
-            "email" => "ahjgsahjdg"
         ]
         ];
         return $data;
