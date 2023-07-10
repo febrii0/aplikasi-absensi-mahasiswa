@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <h1 class="h3 mb-2 text-gray-800">Mahasiswa</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -29,7 +29,6 @@
                         <td> <?= $mahasiswa["nama_mhs"] ?></td>
                         <td> <?= $mahasiswa["email"] ?></td>
                         <td> <?= $mahasiswa["id_kelas"] ?></td>
-                        <td>
                     </tr>
                 <?php endforeach; ?>
             </table>
