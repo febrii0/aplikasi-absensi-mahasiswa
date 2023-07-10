@@ -31,7 +31,7 @@
                         <td><?php echo $row['nip']?></td>
                         <td><?php echo $row['nama_dosen']?></td>
                         <td><?php echo $row['email']?></td>
-                        <td><?php echo $row['id_matkul']?></td>
+                        <td><?php echo $row['nama_matkul']?></td>
                     </tr>
                     <?php endforeach; ?>
                 </table>
