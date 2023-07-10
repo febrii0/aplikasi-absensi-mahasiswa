@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jul 2023 pada 19.21
--- Versi server: 10.4.25-MariaDB
--- Versi PHP: 8.1.10
+-- Generation Time: Jul 10, 2023 at 12:33 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,263 +24,251 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `absensi`
+-- Table structure for table `absensi`
 --
 
 CREATE TABLE `absensi` (
-  `id_absensi` int(11) NOT NULL,
-  `Mahasiswa` varchar(10) NOT NULL,
-  `Kehadiran` enum('Hadir','Sakit','Izin','Alpa','Belum Absen') NOT NULL,
-  `waktu` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_absen` int(11) NOT NULL,
+  `tanggal` datetime NOT NULL,
+  `id_status` int(11) NOT NULL,
+  `id_matkul` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `absensi`
+--
+
+INSERT INTO `absensi` (`id_absen`, `tanggal`, `id_status`, `id_matkul`) VALUES
+(1, '2023-07-10 09:47:52', 1, 1),
+(2, '2023-07-10 09:47:52', 1, 2),
+(3, '2023-07-10 09:48:17', 1, 3),
+(4, '2023-07-10 09:48:17', 1, 4),
+(5, '2023-07-10 09:48:39', 1, 5),
+(6, '2023-07-10 09:48:39', 1, 6),
+(7, '2023-07-10 09:48:59', 1, 7);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
---
-
-CREATE TABLE `admin` (
-  `id_admin` int(11) NOT NULL,
-  `nama_admin` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `dosen`
+-- Table structure for table `dosen`
 --
 
 CREATE TABLE `dosen` (
   `id_dosen` int(11) NOT NULL,
-  `nip` int(11) NOT NULL,
-  `nama_dosen` varchar(100) NOT NULL,
+  `nip` varchar(20) NOT NULL,
+  `nama_dosen` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_matkul` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `dosen`
+--
+
+INSERT INTO `dosen` (`id_dosen`, `nip`, `nama_dosen`, `email`, `id_matkul`) VALUES
+(1, '199010082022031005', 'Panji Andhika Pratomo, S. Kom., M.T.I', 'panjiandhika@gmail.com', 3),
+(4, '197311242005011001', 'Kurniawan Saputra, S.Kom., M.Kom.', 'kurniawan@gmail.com', 6),
+(5, '198002062005011002', 'Imam Asrowardi, S.Kom., M.Kom.', 'imam@gmail.com', 4);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kelas`
+-- Table structure for table `kelas`
 --
 
 CREATE TABLE `kelas` (
   `id_kelas` int(11) NOT NULL,
-  `nama_kelas` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `nama_kelas` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kelas`
+--
+
+INSERT INTO `kelas` (`id_kelas`, `nama_kelas`) VALUES
+(1, 'Manajemen Informatika - A'),
+(2, 'Manajemen Informatika - B'),
+(3, 'Manajemen Informatika - C');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mahasiswa`
+-- Table structure for table `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
   `id_mhs` int(11) NOT NULL,
   `npm` int(8) NOT NULL,
-  `nama_mhs` varchar(100) NOT NULL,
-  `tanggal_lhr` date NOT NULL,
+  `nama` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `angkatan` year(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_kelas` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`id_mhs`, `npm`, `nama`, `email`, `id_kelas`) VALUES
+(1, 21753038, 'Agata Whindi Febriani', 'agatawhindi@gmail.com', 2),
+(2, 21753040, 'Alifia Rahmanita', 'alifia@gmail.com', 2),
+(3, 21753047, 'Dwi Elya', 'dwielya@gmail.com', 2),
+(4, 21753049, 'Febriansyah Agung Tirta', 'febriansyahagungt@gmail.com', 1),
+(5, 21753045, 'Dedi Surahmin', 'dediii@gmail.com', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `matkul`
+-- Table structure for table `mata_kuliah`
 --
 
-CREATE TABLE `matkul` (
+CREATE TABLE `mata_kuliah` (
   `id_matkul` int(11) NOT NULL,
-  `kode_matkul` varchar(50) NOT NULL,
-  `nama_matkul` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `nama_matkul` varchar(50) NOT NULL,
+  `kode_matkul` varchar(10) NOT NULL,
+  `id_dosen` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `mata_kuliah`
+--
+
+INSERT INTO `mata_kuliah` (`id_matkul`, `nama_matkul`, `kode_matkul`, `id_dosen`) VALUES
+(1, 'Pemrograman SQL', 'PMI 1417', 0),
+(2, 'Pemrograman Web Framework', 'PMI 1416', 0),
+(3, 'Kecakapan Antar Personal', 'PMI 1415', 0),
+(4, 'Rancang Bangun Jaringan Komputer', 'PMI 1411', 0),
+(5, 'Kesehatan dan Keselamatan Kerja', 'PKD 1311', 0),
+(6, 'Pengantar Kewirausahaan', 'PKD 1131', 0),
+(7, 'Teknik Penulisan Karya Ilmiah', 'PKU 1411', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `prodi`
+-- Table structure for table `status_kehadiran`
 --
 
-CREATE TABLE `prodi` (
-  `id_prodi` int(11) NOT NULL,
-  `nama_prodi` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
+CREATE TABLE `status_kehadiran` (
+  `id_status` int(11) NOT NULL,
+  `keterangan` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Struktur dari tabel `semester`
+-- Dumping data for table `status_kehadiran`
 --
 
-CREATE TABLE `semester` (
-  `id_semester` int(11) NOT NULL,
-  `semester` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `tahun_angkatan`
---
-
-CREATE TABLE `tahun_angkatan` (
-  `id_thn_angkt` int(11) NOT NULL,
-  `tahun_angkatan` year(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user`
---
-
-CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `status_kehadiran` (`id_status`, `keterangan`) VALUES
+(1, 'Hadir'),
+(2, 'Izin'),
+(3, 'Sakit'),
+(4, 'Alpa');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `absensi`
+-- Indexes for table `absensi`
 --
 ALTER TABLE `absensi`
-  ADD PRIMARY KEY (`id_absensi`);
+  ADD PRIMARY KEY (`id_absen`),
+  ADD KEY `id_status` (`id_status`),
+  ADD KEY `id_matkul` (`id_matkul`);
 
 --
--- Indeks untuk tabel `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id_admin`);
-
---
--- Indeks untuk tabel `dosen`
+-- Indexes for table `dosen`
 --
 ALTER TABLE `dosen`
   ADD PRIMARY KEY (`id_dosen`),
-  ADD UNIQUE KEY `nip` (`nip`);
+  ADD KEY `id_matkul` (`id_matkul`);
 
 --
--- Indeks untuk tabel `kelas`
+-- Indexes for table `kelas`
 --
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id_kelas`);
 
 --
--- Indeks untuk tabel `mahasiswa`
+-- Indexes for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`id_mhs`),
-  ADD UNIQUE KEY `npm` (`npm`);
+  ADD UNIQUE KEY `npm` (`npm`),
+  ADD KEY `id_kelas` (`id_kelas`);
 
 --
--- Indeks untuk tabel `matkul`
+-- Indexes for table `mata_kuliah`
 --
-ALTER TABLE `matkul`
+ALTER TABLE `mata_kuliah`
   ADD PRIMARY KEY (`id_matkul`);
 
 --
--- Indeks untuk tabel `prodi`
+-- Indexes for table `status_kehadiran`
 --
-ALTER TABLE `prodi`
-  ADD PRIMARY KEY (`id_prodi`);
+ALTER TABLE `status_kehadiran`
+  ADD PRIMARY KEY (`id_status`);
 
 --
--- Indeks untuk tabel `semester`
---
-ALTER TABLE `semester`
-  ADD PRIMARY KEY (`id_semester`);
-
---
--- Indeks untuk tabel `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `absensi`
+-- AUTO_INCREMENT for table `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `dosen`
+-- AUTO_INCREMENT for table `dosen`
 --
 ALTER TABLE `dosen`
-  MODIFY `id_dosen` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dosen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `kelas`
+-- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `mahasiswa`
+-- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mhs` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `matkul`
+-- AUTO_INCREMENT for table `mata_kuliah`
 --
-ALTER TABLE `matkul`
-  MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `mata_kuliah`
+  MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `prodi`
+-- AUTO_INCREMENT for table `status_kehadiran`
 --
-ALTER TABLE `prodi`
-  MODIFY `id_prodi` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `status_kehadiran`
+  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `semester`
---
-ALTER TABLE `semester`
-  MODIFY `id_semester` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `user`
---
-ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `absensi`
+-- Constraints for table `absensi`
 --
 ALTER TABLE `absensi`
-  ADD CONSTRAINT `absensi_ibfk_1` FOREIGN KEY (`id_absensi`) REFERENCES `mahasiswa` (`id_mhs`);
+  ADD CONSTRAINT `absensi_ibfk_1` FOREIGN KEY (`id_status`) REFERENCES `status_kehadiran` (`id_status`),
+  ADD CONSTRAINT `absensi_ibfk_2` FOREIGN KEY (`id_matkul`) REFERENCES `mata_kuliah` (`id_matkul`);
 
 --
--- Ketidakleluasaan untuk tabel `dosen`
+-- Constraints for table `dosen`
 --
 ALTER TABLE `dosen`
-  ADD CONSTRAINT `dosen_ibfk_1` FOREIGN KEY (`id_dosen`) REFERENCES `absensi` (`id_absensi`);
+  ADD CONSTRAINT `dosen_ibfk_2` FOREIGN KEY (`id_matkul`) REFERENCES `mata_kuliah` (`id_matkul`);
 
 --
--- Ketidakleluasaan untuk tabel `mahasiswa`
+-- Constraints for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  ADD CONSTRAINT `mahasiswa_ibfk_1` FOREIGN KEY (`id_mhs`) REFERENCES `kelas` (`id_kelas`);
+  ADD CONSTRAINT `mahasiswa_ibfk_1` FOREIGN KEY (`id_kelas`) REFERENCES `kelas` (`id_kelas`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
