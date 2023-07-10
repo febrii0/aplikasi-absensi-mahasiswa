@@ -24,4 +24,8 @@ class Absensi extends BaseController
         $data['data_absensi'] = $this -> absensi -> getAbsensi();
         return view("absensi/absen_mhs", $data);
     }
+    public function all()
+    {
+        dd($this->absensi->getAllData());
+    }
 }
