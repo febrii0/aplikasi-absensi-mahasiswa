@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-class ForgotPassword extends BaseController
+class IsiAbsen extends BaseController
 {
     public function index()
     {
-        return view('menu/forgot_password');
+        return view('isiabsen/add_absen');
     }
 }

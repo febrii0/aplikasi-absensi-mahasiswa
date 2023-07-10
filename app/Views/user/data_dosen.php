@@ -5,9 +5,6 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Data Dosen</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-            href="https://datatables.net">official DataTables documentation</a>.</p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -31,7 +28,7 @@
                         <td><?php echo $row['nip']?></td>
                         <td><?php echo $row['nama_dosen']?></td>
                         <td><?php echo $row['email']?></td>
-                        <td><?php echo $row['id_matkul']?></td>
+                        <td><?php echo $row['nama_matkul']?></td>
                     </tr>
                     <?php endforeach; ?>
                 </table>
