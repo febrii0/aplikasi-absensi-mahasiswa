@@ -10,13 +10,6 @@ class MahasiswaModel extends Model
     protected $useAutoIncrement = true;
     protected $allowdFields = ['id_mhs', 'npm', 'nama', 'email', 'id_kelas'];
 
-    public function getAllDataJoin()
-    {
-        $query = $this ->db->table('mahasiswa')
-        ->select("mahasiswa.*, kelas.nama_kelas")
-        ->join("kelas", "kelas.id_kelas = mahasiswa.id_kelas");
-        return $query->get()->getResultArray();
-    }
     public function getMahasiswa(){
         $data= [
         [
@@ -38,9 +31,7 @@ class MahasiswaModel extends Model
 
     public function totalMahasiswa()
     {
-        $query = $this ->db->table('mahasiswa')
-        ->select("mahasiswa.*, kelas.nama_kelas")
-        ->join("kelas", "kelas.id_kelas = mahasiswa.id_kelas");
+        $query = $this->db->table('mahasiswa');
         return $query->get()->getResultArray();
     }
 
