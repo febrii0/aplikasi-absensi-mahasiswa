@@ -52,7 +52,6 @@
 
             </li>
 
-
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -97,6 +96,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
                         <a class="collapse-item" href="/login">Login</a>
+                        <a class="collapse-item" href="/register">Register</a>
+                        <a class="collapse-item" href="/forgotPassword">Forgot Password</a>
                     </div>
                 </div>
             </li>
@@ -177,7 +178,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?= base_url('mahasiswa/profile' .$this->session->id_mhs); ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>

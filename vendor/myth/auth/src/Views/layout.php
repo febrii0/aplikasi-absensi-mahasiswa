@@ -7,22 +7,22 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Absensi | Mahasiswa</title>
+    <title>Myth:Auth</title>
 
     <!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <style>
+    <style>
         body {
             padding-top: 5rem;
         }
-    </style> -->
+    </style>
 
     <?= $this->renderSection('pageStyles') ?>
 </head>
 
 <body>
 
-
+<?= view('Myth\Auth\Views\_navbar') ?>
 
 <main role="main" class="container">
 	<?= $this->renderSection('main') ?>

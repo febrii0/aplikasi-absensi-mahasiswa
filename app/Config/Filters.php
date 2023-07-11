@@ -16,13 +16,13 @@ class Filters extends BaseConfig
      * make reading things nicer and simpler.
      */
     public array $aliases = [
-        'csrf'          => \CodeIgniter\Filters\CSRF::class,
-        'toolbar'       => \CodeIgniter\Filters\DebugToolbar::class,
-        'honeypot'      => \CodeIgniter\Filters\Honeypot::class,
-        'login'      => \Myth\Auth\Filters\LoginFilter::class,
-        'role'       => \Myth\Auth\Filters\RoleFilter::class,
+        'csrf' => \CodeIgniter\Filters\CSRF::class,
+        'toolbar' => \CodeIgniter\Filters\DebugToolbar::class,
+        'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+        'login' => \Myth\Auth\Filters\LoginFilter::class,
+        'role' => \Myth\Auth\Filters\RoleFilter::class,
         'permission' => \Myth\Auth\Filters\PermissionFilter::class,
-        
+
     ];
 
     /**
@@ -32,7 +32,7 @@ class Filters extends BaseConfig
     public array $globals = [
         'before' => [
             'honeypot',
-            'login'
+            // 'login'
             // 'csrf',
 
         ],
@@ -63,5 +63,7 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
-    public array $filters = [];
+    public array $filters = [
+        'login' => ['before' => ['mahasiswa']],
+    ];
 }
