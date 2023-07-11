@@ -28,4 +28,6 @@ class Mahasiswa extends BaseController
     {
         dd($this->mahasiswa->getAllData());
     }
+
+    
 }
