@@ -4,21 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DashboardModel extends Model
+class UserModel extends Model
 {
-    protected $table = 'tb_siswa';
-    protected $primaryKey = 'id_siswa';
-    protected $useAutoIncrement = true;
-    protected $allowedFields = ['nis', 'nisn', 'nama_siswa', 'tempat_lahir', 'tgl_lahir', 'jenis_kelamin', 'agama', 'status', 'foto'];
+    protected $table = 'users'; // Nama tabel pengguna (sesuaikan dengan tabel yang Anda gunakan)
+    protected $primaryKey = 'id'; // Nama kolom kunci utama (sesuaikan dengan kolom yang Anda gunakan)
+    protected $allowedFields = ['NPM', 'password']; // Kolom yang diizinkan untuk diisi
 
-    //fungsi untuk menampilkan semua data dalam table
-    public function getAllData()
+    // Tambahkan fungsi untuk memvalidasi NPM
+    public function valid_NPM(string $str, string &$error = null): bool
     {
-        return $this->findAll();
-    }
-
-    public function getDataById($id)
-    {
-        return $this->find($id);
+        // Kode validasi NPM
+        // Anda dapat menyesuaikan kode validasi sesuai dengan aturan NPM yang diinginkan.
     }
 }

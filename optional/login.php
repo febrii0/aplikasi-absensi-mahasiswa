@@ -14,10 +14,10 @@ class Login extends BaseController
     public function authenticate()
      {
    
-         $email = $this->request->getPost('email');
+         $email = $this->request->getPost('npm');
          $password = $this->request->getPost('password');
          $validation = $this->validate([
-            'email' => 'required|valid_email',
+            'npm' => 'required|valid_npm',
             'password' => 'required|min_length[6]'
         ]);
 
