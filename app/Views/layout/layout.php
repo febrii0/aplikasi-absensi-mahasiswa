@@ -80,7 +80,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/absensi">Mahasiswa</a>
+                        <a class="collapse-item" href="/isiabsen">Mahasiswa</a>
                     </div>
                 </div>
             </li>
@@ -97,6 +97,7 @@
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
                         <a class="collapse-item" href="/login">Login</a>
                         <a class="collapse-item" href="/register">Register</a>
+                        <a class="collapse-item" href="/forgotPassword">Forgot Password</a>
                     </div>
                 </div>
             </li>
@@ -177,7 +178,6 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="/profile">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
