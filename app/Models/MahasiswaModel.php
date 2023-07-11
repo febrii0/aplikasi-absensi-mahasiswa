@@ -32,6 +32,9 @@ class MahasiswaModel extends Model
     public function totalMahasiswa()
     {
         $query = $this->db->table('mahasiswa');
+        $query = $this ->db->table('mahasiswa')
+        ->select("mahasiswa.*, kelas.nama_kelas")
+        ->join("kelas", "kelas.id_kelas = mahasiswa.id_kelas");
         return $query->get()->getResultArray();
     }
 
@@ -40,7 +43,10 @@ class MahasiswaModel extends Model
     { 
        return $this-> findAll();
     }
-    
+    public function countAll()
+    {
+        return $this->countAllResults();
+    }
 }
 
 
