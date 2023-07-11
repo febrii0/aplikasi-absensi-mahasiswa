@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 
-//step 1
 use App\Models\AbsensiModel;
 use App\Models\KelasModel;
 use App\Models\MahasiswaModel;
@@ -13,14 +12,12 @@ use App\Models\MatkulModel;
 
 class Absensi extends BaseController
 {
-    //step 2
     protected $absensi;
     protected $kelas;
     protected $mahasiswa;
     protected $status;
     protected $matkul;
 
-    //step 3
     public function __construct()
     {
         //step 4
@@ -32,28 +29,20 @@ class Absensi extends BaseController
     }
     public function index()
     {
-        //dd($this -> absensi -> getAbsensi());
-        $data['data_absensi'] = $this->absensi->getAbsensi();
-        return view("isiabsen/tambahabsen", $data);
+        $data['absensi'] = $this->absensi->findAll();
+        return view('absensi/index', $data);
     }
 
-    // public function tambahabsen()
-    // {
-    //     $data['kelas'] = $this->kelas->getAllData();
-    //     // $data['mahasiswa'] = $this->mahasiswa->getAllData();
-    //     // $data['status'] = $this->status->getAllData();
-    //     // $data['matkul'] = $this->matkul->getAllData();
-    //     return view("isiabsen/tambahabsen", $data);
-    // }
-
-
-    public function all()
+    public function add_absen()
     {
-        dd($this->absensi->getAllData());
-
+        $data['kelas'] = $this->kelas->getAllData();
+        $data['mahasiswa'] = $this->mahasiswa->getAllData();
+        $data['status'] = $this->status->getAllData();
+        $data['matkul'] = $this->matkul->getAllData();
+        return view("absensi/index", $data);
     }
 
-    public function tambahabsen()
+    public function addAbsensi()
     {
 
         $validation = $this->validate([
@@ -87,7 +76,7 @@ class Absensi extends BaseController
                     'required' => 'Kolom Mata Kuliah harus diisi.'
                 ]
             ],
-                
+
         ]);
 
         if (!$validation) {
@@ -105,6 +94,6 @@ class Absensi extends BaseController
 
         $this->absensi->save($data);
         session()->setFlashdata('success', 'Data berhasil disimpan.'); // tambahkan ini
-        return redirect()->to('/absensi/tambahabsen');
+        return redirect()->to('/absensi');
     }
 }

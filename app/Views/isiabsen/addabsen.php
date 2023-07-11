@@ -12,14 +12,14 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div class="card-body">
-                    <form action="/absensi/isiabsen" method="POST" enctype="multipart/form-data">
+                    <form action="/absensi/add" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="nama_kelas" class="form-label">Kelas</label>
                                 <select name="id_kelas" id="kelas"
                                     class="form-control <?= isset($errors['id_kelas']) ? 'is-invalid' : ''; ?>">
                                     <option value="">Pilih..</option>
-                                    <?php foreach ($tambahabsen as $a): ?>
+                                    <?php foreach ($tambahabsen as $absen): ?>
                                         <option value="<?= $a["id_kelas"] ?>" <?= old('id_kelas') == $a["id_kelas"] ? 'selected' : '' ?>>
                                             <?= $a["nama_kelas"] ?>
                                         </option>

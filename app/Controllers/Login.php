@@ -25,7 +25,7 @@ class Login extends BaseController
             return redirect()->to('/login')->withInput()->with('error', 'NPM dan password harus diisi.');
         }
 
-        $userModel = new ($userModel);
+        $userModel = new UserModel();
         $user = $userModel->where('NPM', $NPM)->first();
 
         if (!$user || !password_verify($password, $user['password'])) {
