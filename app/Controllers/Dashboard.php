@@ -2,12 +2,20 @@
 
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
+use App\models\MahasiswaModel;
+
 
 class Dashboard extends BaseController
 {
     public function index()
     {
-        return view('home/dashboard');
+        $mahasiswaModel = new MahasiswaModel();
+        $jumlahMahasiswa = $mahasiswaModel->countAll();
+
+        $data = [
+            'jumlahMahasiswa' => $jumlahMahasiswa
+        ];
+
+        return view('home/dashboard', $data);
     }
 }

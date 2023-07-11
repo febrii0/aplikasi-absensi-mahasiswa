@@ -9,7 +9,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Tabel Data Dosen</h6>
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -28,7 +28,7 @@
                         <td><?php echo $row['nip']?></td>
                         <td><?php echo $row['nama_dosen']?></td>
                         <td><?php echo $row['email']?></td>
-                        <td><?php echo $row['nama_matkul']?></td>
+                        <td><?php echo $row['id_matkul']?></td>
                     </tr>
                     <?php endforeach; ?>
                 </table>

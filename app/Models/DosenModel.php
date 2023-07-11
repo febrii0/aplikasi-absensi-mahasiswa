@@ -49,9 +49,6 @@ class DosenModel extends Model
     public function totalDosen()
     {
         $query = $this->db->table('dosen');
-        $query = $this ->db->table('dosen')
-        ->select("dosen.*, mata_kuliah.nama_matkul")
-        ->join("mata_kuliah", "mata_kuliah.id_matkul = dosen.id_matkul");
         return $query->get()->getResultArray();
     }
 }
