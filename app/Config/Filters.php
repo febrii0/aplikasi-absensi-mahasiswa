@@ -64,6 +64,6 @@ class Filters extends BaseConfig
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
     public array $filters = [
-        // 'login' => ['before' => ['mahasiswa']],
+        //'login' => ['before' => ['mahasiswa']],
     ];
 }

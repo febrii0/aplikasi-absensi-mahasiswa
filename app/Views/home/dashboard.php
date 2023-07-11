@@ -22,7 +22,7 @@
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Total Mahasiswa</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                Ini nanti di isi
+                                <?php echo $jumlahMahasiswa;?>
                             </div>
                         </div>
                         <div class="col-auto">

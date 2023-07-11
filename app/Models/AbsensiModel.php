@@ -18,7 +18,28 @@ class AbsensiModel extends Model
 
     public function getAbsensi()
     {
-        $query = $this->db->table('absensi');
-        return $query->get()->getResultArray();
+        $data = [
+            [
+                "tanggal" => "10 Juli 2023",
+                "matkul" => "Pemrograman Framework",
+                "status" => "Hadir"
+            ],
+            [
+                "tanggal" => "10 Juli 2023",
+                "matkul" => "Pemrograman Framework",
+                "status" => "Alpa"
+            ],
+            [
+                "tanggal" => "10 Juli 2023",
+                "matkul" => "Pemrograman Framework",
+                "status" => "Ijin"
+            ],
+            [
+                "tanggal" => "10 Juli 2023",
+                "matkul" => "Pemrograman Framework",
+                "status" => "Sakit"
+            ]
+        ];
+        return $data;
     }
 }

@@ -43,8 +43,8 @@ class MahasiswaModel extends Model
     { 
        return $this-> findAll();
     }
-    
+    public function countAll()
+    {
+        return $this->countAllResults();
+    }
 }
-
-
-
