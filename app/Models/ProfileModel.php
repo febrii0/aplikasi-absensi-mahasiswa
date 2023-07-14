@@ -6,14 +6,14 @@ use CodeIgniter\Model;
 
 class ProfileModel extends Model
 {
-    protected $table = 'mahasiswa';
-    protected $primarykey = 'id_mhs';
+    protected $table = 'users';
+    protected $primarykey = 'user_id';
     protected $useAutoIncrement = true;
-    protected $allowdFields = ['id_mhs', 'npm', 'nama', 'email', 'id_kelas'];
+    protected $allowdFields = ['user_nama', 'user_email'];
+
     public function getProfile()
     {
-        $query = $this->db->table('mahasiswa');
+        $query = $this->db->table('users');
         return $query->get()->getResultArray();
     }
-
 }

@@ -24,4 +24,16 @@ class Kelas extends BaseController
         $data['data_kelas'] = $this -> kelas -> getKelas();
         return view("kelas/data_kelas", $data);
     }
+
+    public function add()
+    {
+        $data["data_kelas"] = $this->kelas->getAllData();
+        $data["errors"] = session('errors');
+        return view("kelas/add", $data);
+    }
+
+    public function store()
+    {
+        
+    }
 }

@@ -1,48 +1,81 @@
 <?php
-
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
+use App\Models\UserModel;
 
 class Login extends BaseController
 {
     public function index()
     {
-        return view('menu/login');
+        return view('/login/user_login');
     }
 
-    public function authenticate()
-     {
-   
-         $NPM = $this->request->getPost('NPM');
-         $password = $this->request->getPost('password');
-         $validation = $this->validate([
-            'NPM' => 'required|valid_NPM',
-            'password' => 'required|min_length[6]'
-        ]);
+    public function login_action()
+    {
+        $muser = new UserModel();
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
 
-        if (!$validation) {
-            return redirect()->to('/login')->withInput()->with('error', 'NPM dan password harus diisi.');
+        $cek = $muser->get_data($email, $password);
+        if ($cek !== null && ($cek['user_email'] == $email) && ($cek['user_pass'] == $password)) {
+            session()->set('user_email', $cek['user_email']);
+            session()->set('user_nama', $cek['user_nama']);
+            session()->set('id', $cek['id']);
+            return redirect()->to(base_url('Dashboard'));
+        } else {
+            session()->setFlashdata('gagal', 'Username / Password salah');
+            return redirect()->back()->withInput()->with('error', 'Invalid email or password');
         }
-
-        $userModel = new UserModel();
-        $user = $userModel->where('NPM', $NPM)->first();
-
-        if (!$user || !password_verify($password, $user['password'])) {
-            return redirect()->to('/login')->withInput()->with('error', 'NPM atau password salah.');
-        }
-
-        $session = session();
-        $session->set('user_id', $user['id']);
-
-        return redirect()->to('/dashboard');
     }
 
     public function logout()
     {
-        $session = session();
-        $session->remove('user_id');
+        session()->destroy();
+        return redirect()->to(base_url('login'));
+    }
+
+    public function register()
+    {
+        return view('login/register');
+    }
+
+    public function reg_action()
+    {
+        $validation = $this->validate([
+            'user_nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom Harus diisi'
+                ]
+            ],
+            'user_email' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom ini Harus diisi'
+                ]
+            ],
+            'user_pass' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Kolom ini Harus diisi'
+                ]
+            ],
+
+        ]);
+
+        if (!$validation) {
+            $errors = \Config\Services::validation()->getErrors();
+
+            return redirect()->back()->withInput()->with('errors', $errors);
+        }
+
+        $data = [
+            'user_nama' => $this->request->getPost('user_nama'),
+            'user_email' => $this->request->getPost('user_email'),
+            'user_pass' => $this->request->getPost('user_pass'),
+        ];
+        $this->user->save($data);
+        session()->setFlashdata('success', 'Data berhasil disimpan.');
         return redirect()->to('/login');
     }
 }
-

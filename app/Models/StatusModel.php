@@ -7,9 +7,9 @@ use CodeIgniter\Model;
 class StatusModel extends Model
 {
     protected $table                = 'status_kehadiran';
-    protected $primarykey           = 'id_status';
+    protected $primarykey           = 'id_absen';
     protected $useAutoIncrement     = true;
-    protected $allowdFields          = ['id_status', 'keterangan'];
+    protected $allowdFields          = ['absen'];
 
     public function getStatus() {
         $data = [

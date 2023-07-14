@@ -16,11 +16,11 @@ class Profile extends BaseController
     public function __construct()
     {
         //step 4
-        $this -> profile = new ProfileModel();
+        $this->profile = new ProfileModel();
     }
     public function index()
     {
-        $data['data_profile'] = $this -> profile -> getProfile();
+        $data['data_profile'] = $this->profile->getProfile();
         return view("profile/data_profile", $data);
     }
 }

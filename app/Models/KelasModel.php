@@ -9,7 +9,12 @@ class KelasModel extends Model
     protected $table = 'kelas';
     protected $primarykey = 'id_kelas';
     protected $useAutoIncrement = true;
-    protected $allowdFields = ['id_kelas', 'nama_kelas'];
+    protected $allowdFields = ['kelas'];
+
+    public function getAllData()
+    {
+        return $this->findAll();
+    }
     public function getKelas()
     {
         $query = $this->db->table('kelas');

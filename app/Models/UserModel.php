@@ -1,24 +1,18 @@
-<?php
-
-namespace App\Models;
-
+<?php namespace App\Models;
 use CodeIgniter\Model;
 
-class DashboardModel extends Model
+class UserModel extends Model
 {
-    protected $table = 'tb_siswa';
-    protected $primaryKey = 'id_siswa';
-    protected $useAutoIncrement = true;
-    protected $allowedFields = ['nis', 'nisn', 'nama_siswa', 'tempat_lahir', 'tgl_lahir', 'jenis_kelamin', 'agama', 'status', 'foto'];
+      protected $table             ='user';
+      protected $primaryKey        ='id_user';
+      protected $useAutoIncrement  = true;
+      protected $allowedFields     = ['user_nama', 'user_email', 'user_pass'];
 
-    //fungsi untuk menampilkan semua data dalam table
-    public function getAllData()
-    {
-        return $this->findAll();
-    }
-
-    public function getDataById($id)
-    {
-        return $this->find($id);
-    }
+	public function get_data($email, $password)
+	{
+      return $this->db->table('users')
+      ->where(array('user_email' => $email, 'user_pass' => $password))
+      ->get()->getRowArray();
+	}
+      
 }
